@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using NUnit.Framework;
 using TechTalk.SpecFlow;
 using WEDDINGSHOP_TASK.PageObjects;
 using WEDDINGSHOP_TASK.Utilities;
@@ -9,12 +10,12 @@ namespace WEDDINGSHOP_TASK.StepDefinitions
     [Binding]
     public class RegistrationSteps
     {
-        RegistrationPage RegistrationPage;
+        RegistrationPage registrationPage;
 
         public RegistrationSteps()
 
         {
-            RegistrationPage = new RegistrationPage();
+            registrationPage = new RegistrationPage();
         }
 
         [Given(@"I navigate to www\. weddingshop\.com")]
@@ -29,111 +30,111 @@ namespace WEDDINGSHOP_TASK.StepDefinitions
         public void GivenIClickOnCreateAList()
         {
            
-           RegistrationPage.ClickCreatList();
+           registrationPage.ClickCreatList();
         }
         
         [Given(@"I enter my title")]
         public void GivenIEnterMyTitle()
         {
-            RegistrationPage.EnterTitle();
+            registrationPage.EnterTitle();
         }
         
         [Given(@"I enter my Firstname")]
         public void GivenIEnterMyFirstname()
         {
-            RegistrationPage.EnterFirstName();
+            registrationPage.EnterFirstName();
         }
         
         [Given(@"I enter my Lastname")]
         public void GivenIEnterMyLastname()
         {
-            RegistrationPage.EnterSurName();
+            registrationPage.EnterSurName();
         }
         
         [Given(@"I enter where I hear about the site")]
         public void GivenIEnterWhereIHearAboutTheSite()
         {
-            RegistrationPage.EnterAboutUs();
+            registrationPage.EnterAboutUs();
         }
         
         [Given(@"I enter my partners title")]
         public void GivenIEnterMyPartnersTitle()
         {
-            RegistrationPage.EnterPartnerTitle();
+            registrationPage.EnterPartnerTitle();
         }
         
         [Given(@"I enter my partner firstname")]
         public void GivenIEnterMyPartnerFirstname()
         {
-           RegistrationPage.EnterPartnerName ();
+           registrationPage.EnterPartnerName ();
         }
         
         [Given(@"I enter my partner lastname")]
         public void GivenIEnterMyPartnerLastname()
         {
-            RegistrationPage.EnterPartnerSurName();
+            registrationPage.EnterPartnerSurName();
         }
         
         [Given(@"I enter country location")]
         public void GivenIEnterCountryLocation()
         {
-          RegistrationPage.EnterAddress();
+          registrationPage.EnterAddress();
         }
         
         [Given(@"I enter address/postcode")]
         public void GivenIEnterAddressPostcode()
         {
-            Thread.Sleep(3000);
-            RegistrationPage.EnterPostCodeAddress();
+            
+            registrationPage.EnterPostCodeAddress();
         }
         
         [Given(@"I enter contact number")]
         public void GivenIEnterContactNumber()
         {
-            RegistrationPage.EnterContactNumber();
+            registrationPage.EnterContactNumber();
         }
         
         [Given(@"I enter wedding date")]
         public void GivenIEnterWeddingDate()
         {
-            Thread.Sleep(3000);
-            RegistrationPage.EnterOccasiondate();
+           
+            registrationPage.EnterOccasiondate();
         }
         
         [Given(@"I enter number of guest")]
         public void GivenIEnterNumberOfGuest()
         {
-            RegistrationPage.EnterGuests();
+            registrationPage.EnterGuests();
         }
         
         [Given(@"I enter Email")]
         public void GivenIEnterEmail()
         {
-            RegistrationPage.EnterEmail();
+            registrationPage.EnterEmail();
         }
         
         [Given(@"I enter Password")]
         public void GivenIEnterPassword()
         {
-            RegistrationPage.EnterPassword();
+            registrationPage.EnterPassword();
         }
         
         [Given(@"I Confirm Password")]
         public void GivenIConfirmPassword()
         {
-            RegistrationPage.EnterConfirmPassword();
+            registrationPage.EnterConfirmPassword();
         }
         
         [When(@"I click on submit button")]
         public void WhenIClickOnSubmitButton()
         {
-            RegistrationPage.ClickSubmit();
+            registrationPage.ClickSubmit();
         }
         
         [Then(@"I should be a registered user")]
         public void ThenIShouldBeARegisteredUser()
         {
-            ScenarioContext.Current.Pending();
+           Assert.IsTrue(registrationPage.ConfirmRegistration());
         }
     }
 }

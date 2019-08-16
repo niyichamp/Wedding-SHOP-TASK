@@ -19,6 +19,30 @@ namespace WEDDINGSHOP_TASK.PageObjects
         [FindsBy(How = How.Id, Using = "btn-nav-create-a-list")]
         private IWebElement createlist { get; set; }
 
+
+        [FindsBy(How = How.CssSelector, Using = "#find-address-manual")]
+        private IWebElement entermaually { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = "#addess1")]
+        private IWebElement address1 { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = "#addess2")]
+        private IWebElement address2 { get; set; }
+
+        [FindsBy(How = How.Id, Using = "addess3")]
+        private IWebElement address3 { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//*[@id='town']")]
+        private IWebElement town { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//*[@id='county']")]
+        private IWebElement County { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//*[@id='postcode']")]
+        private IWebElement postcode { get; set; }
+
+
+
         public void ClickCreatList()
         {
             createlist.Click();
@@ -87,27 +111,6 @@ namespace WEDDINGSHOP_TASK.PageObjects
             address.SendKeys("United Kingdom");
         }
 
-        [FindsBy(How = How.CssSelector, Using = "#find-address-manual")]
-        private IWebElement entermaually { get; set; }
-
-        [FindsBy(How = How.CssSelector, Using = "#addess1")]
-        private IWebElement address1 { get; set; }
-
-        [FindsBy(How = How.CssSelector, Using = "#addess2")]
-        private IWebElement address2 { get; set; }
-
-        [FindsBy(How = How.Id, Using = "addess3")]
-        private IWebElement address3 { get; set; }
-
-        [FindsBy(How = How.XPath, Using = "//*[@id='town']")]
-        private IWebElement town { get; set; }
-
-        [FindsBy(How = How.XPath, Using = "//*[@id='county']")]
-        private IWebElement County { get; set; }
-
-        [FindsBy(How = How.XPath, Using = "//*[@id='postcode']")]
-        private IWebElement postcode { get; set; }
-
         public void EnterPostCodeAddress()
         {
             entermaually.Click();
@@ -128,12 +131,20 @@ namespace WEDDINGSHOP_TASK.PageObjects
             contactnumber.SendKeys("07539460018");
         }
 
-        [FindsBy(How = How.CssSelector, Using = ".CalendarMonthGrid_month__horizontal:nth-child(2) tr:nth-child(4) > .CalendarDay:nth-child(5)")]
+        [FindsBy(How = How.CssSelector, Using = "#occasionDate")]
         private IWebElement occasiondate { get; set; }
+
+       
+        [FindsBy(How = How.CssSelector, Using = "td[aria-label*='August 29, 2019'] ")]
+        private IWebElement occasionCalendar { get; set; }
+
+        
 
         public void EnterOccasiondate()
         {
             occasiondate.Click();
+           // occasiondate.SendKeys("01/01/2019");
+            occasionCalendar.Click();
         }
 
         [FindsBy(How = How.CssSelector, Using = "#numberOfGuests")]
@@ -144,12 +155,26 @@ namespace WEDDINGSHOP_TASK.PageObjects
             guests.SendKeys("102");
         }
 
+        //#root > div.main-content > div > div > div > header > h2
+
+        [FindsBy(How = How.CssSelector, Using = "#root > div.main-content > div > div > div > header > h2")]
+        private IWebElement confirmReg { get; set; }
+
+        public bool ConfirmRegistration()
+        {
+            return confirmReg.Displayed;
+        }
+
+
+
         [FindsBy(How = How.CssSelector, Using ="#loginEmail")]
         private IWebElement email { get; set; }
 
         public void EnterEmail()
         {
-            email.SendKeys("Tjaychampion@yahoo.com");
+            Random r = new Random();
+
+            email.SendKeys("Tjaychampion"+  r.Next().ToString() + "@yahoo.com");
         }
 
         [FindsBy(How = How.XPath, Using = "//*[@id='loginPassword']")]

@@ -41,7 +41,7 @@ namespace WEDDINGSHOP_TASK.StepDefinitions
         [Then(@"the weddingshop homepage should be displayed")]
         public void ThenTheWeddingshopHomepageShouldBeDisplayed()
         {
-            Thread.Sleep(3000);
+           
             Assert.IsTrue(LoginPage.MessageIsDisplayed(), "DON'T FORGET TO PUBLISH YOUR LIST WHEN YOU'RE READY");
         }
     }

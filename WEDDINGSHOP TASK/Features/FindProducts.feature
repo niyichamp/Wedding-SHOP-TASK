@@ -7,6 +7,6 @@
 
 @mytag
 Scenario: Search for products by description and Budget
-	Given I want candles in the £20-£39 price range
+	Given I navigate to www. weddingshop.com
 	When I click on search for "candles" and filter by price
-	Then candles priced between £20-£39 should be displayed
+	Then I see more candles displayed

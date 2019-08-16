@@ -49,7 +49,7 @@ namespace WEDDINGSHOP_TASK.PageObjects
 
       
 
-        [FindsBy(How = How.XPath, Using = "//*[@id='root']/div[3]/div[1]")]
+        [FindsBy(How = How.CssSelector, Using = "div.left-sidebar__profile-img > p")]
         private IWebElement message { get; set; }
 
         public bool MessageIsDisplayed()

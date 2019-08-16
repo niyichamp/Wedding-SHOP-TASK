@@ -24,4 +24,3 @@ And I enter Password
 And I Confirm Password
 When I click on submit button
 Then I should be a registered user
-	
